@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zyntiq - The Future of E-Learning & Internships. Coming Soon!</title>
+    <link rel="icon" href="favicon.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f5f7fa; /* Light, cool background */
+            color: #2c3e50; /* Darker, sophisticated gray for text */
+            overflow-x: hidden; /* Prevent horizontal scroll */
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e9ecef; /* Lighter track */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #00caff; /* Vibrant accent thumb */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00b0e0; /* Darker accent on hover */
+        }
+
+        /* Keyframe animations for content and background elements */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(25px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes cardPop {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 4px 12px rgba(0,204,255,0.4); }
+            50% { transform: scale(1.03); box-shadow: 0 8px 20px rgba(0,204,255,0.6); }
+            100% { transform: scale(1); box-shadow: 0 4px 12px rgba(0,204,255,0.4); }
+        }
+        @keyframes gradientShift { /* For Hero section background animation */
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        @keyframes floatSubtle {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-8px); }
+            100% { transform: translateY(0px); }
+        }
+        @keyframes logoPulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.03); opacity: 0.8; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        /* Specific animation for glowing background shapes */
+        @keyframes glowFloat {
+            0% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+            33% { transform: translate(15px, -15px) scale(1.05); opacity: 0.3; }
+            66% { transform: translate(-15px, 15px) scale(0.95); opacity: 0.25; }
+            100% { transform: translate(0, 0) scale(1); opacity: 0.2; }
+        }
+        /* Countdown specific glow pulse */
+        @keyframes border-glow-pulse {
+            0% {
+                border-color: rgba(255, 255, 255, 0.5);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+            }
+            50% {
+                border-color: #D94CD6; /* A color from the hero gradient */
+                box-shadow: 0 0 25px rgba(217, 76, 214, 0.8), 0 0 10px rgba(255, 255, 255, 0.6);
+            }
+            100% {
+                border-color: rgba(255, 255, 255, 0.5);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+            }
+        }
+        /* New keyframe for running gradient animation (used in Our Vision section) */
+        @keyframes run-gradient {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+        /* Blob animation for Hero Section */
+        @keyframes blob-animation {
+            0% { transform: scale(1) translate(0px, 0px); border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+            25% { transform: scale(1.05) translate(10px, -10px); border-radius: 40% 60% 70% 30%/40% 70% 30% 60%; }
+            50% { transform: scale(1) translate(0px, 10px); border-radius: 70% 30% 40% 60%/70% 40% 60% 30%; }
+            75% { transform: scale(0.95) translate(-10px, -5px); border-radius: 30% 70% 60% 40%/30% 60% 40% 70%; }
+            100% { transform: scale(1) translate(0px, 0px); border-radius: 60% 40% 30% 70%/60% 30% 70% 40%; }
+        }
+        /* Animation for career path item pop-in */
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        /* For the new interactive container border glow */
+        @keyframes borderFadeGlow {
+            0%, 100% { border-color: rgba(0, 204, 255, 0.3); box-shadow: 0 0 15px rgba(0, 204, 255, 0.2); }
+            50% { border-color: rgba(147, 23, 200, 0.5); box-shadow: 0 0 25px rgba(147, 23, 200, 0.4); }
+        }
+        /* For the new internal glowing elements */
+        @keyframes spinningLight {
+            0% { transform: rotate(0deg) translateX(50%) translateY(-50%) scale(0.8); opacity: 0.1; }
+            25% { transform: rotate(90deg) translateX(60%) translateY(-40%) scale(1); opacity: 0.2; }
+            50% { transform: rotate(180deg) translateX(50%) translateY(-50%) scale(0.8); opacity: 0.1; }
+            75% { transform: rotate(270deg) translateX(40%) translateY(-60%) scale(1); opacity: 0.2; }
+            100% { transform: rotate(360deg) translateX(50%) translateY(-50%) scale(0.8); opacity: 0.1; }
+        }
+        /* Animation for tile grid entry */
+        @keyframes tileEntry {
+            from { opacity: 0; transform: translateY(20px) scale(0.95); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+
+        /* Animation Utility Classes */
+        .animate-fade-in { animation: fadeIn 1.5s ease-out forwards; }
+        .animate-fade-in-up { animation: fadeInUp 1s ease-out forwards; }
+        .animate-fade-in-delay-05s { animation: fadeIn 1.5s ease-out 0.5s forwards; opacity: 0; }
+        .animate-fade-in-up-delay-01s { animation: fadeInUp 1s ease-out 0.1s forwards; opacity: 0; }
+        .animate-fade-in-up-delay-02s { animation: fadeInUp 1s ease-out 0.2s forwards; opacity: 0; }
+        .animate-fade-in-up-delay-03s { animation: fadeInUp 1s ease-out 0.3s forwards; opacity: 0; }
+        .animate-fade-in-up-delay-04s { animation: fadeInUp 1s ease-out 0.4s forwards; opacity: 0; }
+        .animate-fade-in-up-delay-05s { animation: fadeInUp 1s ease-out 0.5s forwards; opacity: 0; }
+        .animate-fade-in-up-delay-06s { animation: fadeInUp 1s ease-out 0.6s forwards; opacity: 0; }
+
+        .animate-card-pop-delay-01s { opacity: 0; transform: scale(0.9); animation: cardPop 0.6s ease-out 0.1s forwards; }
+        .animate-card-pop-delay-02s { opacity: 0; transform: scale(0.9); animation: cardPop 0.6s ease-out 0.2s forwards; }
+        .animate-card-pop-delay-03s { opacity: 0; transform: scale(0.9); animation: cardPop 0.6s ease-out 0.3s forwards; }
+        .animate-card-pop-delay-04s { opacity: 0; transform: scale(0.9); animation: cardPop 0.6s ease-out 0.4s forwards; }
+        .animate-card-pop-delay-05s { opacity: 0; transform: scale(0.9); animation: cardPop 0.6s ease-out 0.5s forwards; }
+        .animate-card-pop-delay-06s { opacity: 0; transform: scale(0.9); animation: cardPop 0.6s ease-out 0.6s forwards; }
+
+        /* General Section Padding */
+        .section-padding {
+            padding: 4rem 1rem; /* Default padding for all sections */
+        }
+        @media (min-width: 768px) {
+            .section-padding { padding: 6rem 2rem; }
+        }
+        @media (min-width: 1024px) {
+            .section-padding { padding: 8rem 4rem; }
+        }
+
+        /* Hero section specific styles */
+        .hero-section-animated-bg {
+            /* Dark Blue and Purple gradient for premium look */
+            background: linear-gradient(135deg, #0A0A2A, #3A005D, #5A1F8D, #203A70); /* Darker blues and purples */
+            background-size: 400% 400%; /* For animation */
+            animation: gradientShift 18s ease infinite; /* Re-enabled gradient animation */
+        }
+        /* Hero background pattern (dots) */
+        .hero-pattern {
+            background-image: radial-gradient(circle at center, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Added definition for text-shadow-lg */
+        .text-shadow-lg {
+            text-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        /* Glowing background shapes */
+        .glow-float-animation-slow { animation: glowFloat 8s infinite ease-in-out; }
+        .glow-float-animation-medium { animation: glowFloat 6s infinite ease-in-out; }
+        .glow-float-animation-fast { animation: glowFloat 4s infinite ease-in-out; }
+
+        /* Card hover effects - with radial gradient for feature cards */
+        .card-hover-effect {
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+            background-color: #ffffff; /* Default background */
+            z-index: 1;
+        }
+        .card-hover-effect::before { /* Inner glow effect for feature cards */
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(0,204,255,0.1) 0%, transparent 70%); /* Accent color glow */
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.4s ease-out;
+            opacity: 0;
+            z-index: -1;
+        }
+        .card-hover-effect:hover::before {
+            width: 300px;
+            height: 300px;
+            opacity: 1;
+        }
+        .card-hover-effect:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            border-color: #00caff; /* Accent border highlight */
+        }
+
+        /* Main gradient button style */
+        .gradient-button {
+            /* INNOVATED BUTTON COLORS: More dynamic purple to blue */
+            background-image: linear-gradient(to right, #6A0DAD, #00BFFF); /* Indigo to Deep Sky Blue */
+            color: #ffffff; /* White text on gradient */
+            transition: all 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Initial subtle shadow */
+        }
+        .gradient-button:hover {
+            transform: translateY(-3px) scale(1.03); /* Lift and slightly scale on hover */
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 0 4px rgba(106, 13, 173, 0.6); /* Stronger shadow with purple glow */
+        }
+        /* Custom text gradient */
+        .text-gradient {
+            /* INNOVATED TEXT GRADIENT COLORS */
+            background: linear-gradient(to right, #4A69BD, #8E2DE2, #00BFFF); /* Softer blue, vibrant purple, bright blue */
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Social icon styling for footer */
+        .social-icon {
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out, background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            filter: grayscale(100%); /* Start grayscale */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            color: #a0aec0; /* Default icon color */
+            animation: floatSubtle 4s infinite ease-in-out; /* Auto floating animation */
+        }
+        .social-icon:hover {
+            filter: grayscale(0%); /* Full color on hover */
+            transform: translateY(-8px) scale(1.2);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+            border-color: transparent;
+            /* Enhanced glow/outline for all social icons on hover */
+            outline: 3px solid rgba(0, 204, 255, 0.5); /* Cyan outline */
+            outline-offset: 2px;
+            animation: none; /* Stop floating animation on hover */
+        }
+        /* Specific hover colors for each social icon */
+        .social-icon.linkedin:hover { background-color: #0A66C2; box-shadow: 0 8px 20px rgba(10, 102, 194, 0.6); }
+        .social-icon.linkedin:hover svg { color: white; }
+        .social-icon.instagram:hover { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); box-shadow: 0 8px 20px rgba(214, 36, 159, 0.6); }
+        .social-icon.instagram:hover svg { color: white; }
+        .social-icon.twitter:hover { background-color: #1DA1F2; box-shadow: 0 8px 20px rgba(29, 161, 242, 0.6); }
+        .social-icon.twitter:hover svg { color: white; }
+
+        /* SVG Blob styling */
+        .svg-blob {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 0; /* Behind content */
+        }
+        .svg-blob svg {
+            width: 100%;
+            height: 100%;
+            /* filter: url(#goo); /* Apply goo filter for soft edges - REMOVED FOR PERFORMANCE */
+            transform: scale(1.5); /* Make blobs slightly larger to fill area better */
+            transform-origin: center center;
+        }
+        .svg-blob polygon, .svg-blob circle {
+            fill: rgba(255, 255, 255, 0.1); /* Subtle white fill for the blob shapes */
+            animation: blob-animation 20s infinite alternate ease-in-out; /* Apply blob animation */
+            transform-origin: center center;
+        }
+
+        /* Nav link underline animation */
+        .nav-link-effect {
+            position: relative;
+            display: inline-block;
+            padding-bottom: 4px; /* Space for the underline */
+        }
+        .nav-link-effect::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #00caff; /* Accent color for underline */
+            transition: width 0.3s ease-out;
+        }
+        .nav-link-effect:hover::after {
+            width: 100%;
+        }
+
+        /* Sticky Nav Bar on Scroll */
+        #navbar.navbar-scrolled {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            background-color: rgba(15, 13, 38, 0.95); /* Darker, more solid for premium feel */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            border-bottom-left-radius: 2rem;
+            border-bottom-right-radius: 2rem;
+        }
+        #navbar .text-gray-200.hover\:text-pink-300 {
+            transition: color 0.3s ease-in-out;
+        }
+        #navbar.navbar-scrolled .text-gray-200.hover\:text-pink-300:hover {
+            color: #D94CD6; /* Keep pink-300 hover on scroll */
+        }
+
+        /* Back to Top Button */
+        #back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: linear-gradient(45deg, #00caff, #8a2be2);
+            color: white;
+            padding: 0.8rem 1rem;
+            border-radius: 9999px;
+            box-shadow: 0 4px 15px rgba(0, 204, 255, 0.4);
+            display: none;
+            cursor: pointer;
+            z-index: 1000;
+            transition: all 0.3s ease-in-out;
+        }
+        #back-to-top:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 204, 255, 0.6);
+        }
+
+        /* Internship section background glows */
+        .internship-section-bg {
+            position: relative;
+            overflow: hidden;
+            /* New background for this section */
+            background: linear-gradient(180deg, #f5f7fa 0%, #e0e6f3 100%); /* Soft blueish gradient */
+        }
+        /* Grid background for internship section */
+        .internship-section-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(to right, rgba(99,102,241,0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(99,102,241,0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.1;
+            animation: runningGridAnimation 25s linear infinite reverse; /* Changed to new animation */
+            z-index: 0;
+        }
+        /* Retaining original blob shapes as well */
+        .internship-section-bg::after {
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            animation: floatSubtle 6s infinite ease-in-out;
+            z-index: 0;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, #a855f7, transparent 70%);
+            bottom: -70px;
+            right: -70px;
+            animation-delay: 3s;
+        }
+        .internship-section-bg .inner-blob { /* Additional internal blob */
+            content: '';
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            background: radial-gradient(circle, #6366f1, transparent 70%);
+            width: 200px;
+            height: 200px;
+            top: -30px;
+            left: 20%;
+            animation: floatSubtle 8s infinite ease-in-out;
+            animation-delay: 1s;
+            z-index: 0;
+        }
+
+        /* Advanced Accreditation Section Styles */
+        .accreditation-section-bg {
+            position: relative;
+            overflow: hidden;
+        }
+        .accreditation-section-bg::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 40px 40px;
+            opacity: 0.1;
+            animation: moveGridAccreditation 20s linear infinite; /* Renamed keyframe */
+            z-index: 0;
+        }
+        /* Changed moveGrid to runningGridAnimation for diagonal movement in internship section */
+        @keyframes runningGridAnimation {
+            0% { background-position: 0 0; }
+            100% { background-position: 60px 60px; } /* Increased values for more noticeable diagonal run */
+        }
+        @keyframes moveGridAccreditation { /* Separate definition for accreditation section */
+            from { background-position: 0 0; }
+            to { background-position: 40px 40px; }
+        }
+
+
+        .accreditation-card-advanced {
+            background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)); /* Lighter internal gradient */
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.15); /* Softer border */
+            transition: all 0.4s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .accreditation-card-advanced:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.4), 0 0 0 5px #00caff; /* Stronger glow accent */
+            border-color: #00caff; /* Accent border */
+        }
+        .accreditation-card-advanced::before { /* Inner light effect on hover */
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0,204,255,0.1), transparent);
+            transition: all 0.5s ease-out;
+            transform: skewX(-20deg);
+        }
+        .accreditation-card-advanced:hover::before {
+            left: 100%;
+        }
+
+        .logo-filter-transition {
+            filter: grayscale(100%) brightness(150%); /* Start grayscale and slightly brighter */
+            transition: filter 0.4s ease-in-out, transform 0.4s ease-in-out;
+            display: block; /* Ensure transform applies correctly */
+        }
+        .logo-filter-transition:hover {
+            filter: grayscale(0%) brightness(100%); /* Full color on hover */
+            transform: scale(1.1) rotateY(10deg); /* Subtle 3D rotation */
+            animation: none; /* Disable general pulse if any */
+        }
+
+        /* Internship section container now for interactive tiles */
+        .internship-tiles-container {
+            border-radius: 1.5rem; /* More rounded corners */
+            overflow: hidden; /* Ensure content stays within bounds */
+            /* Updated shadow for depth */
+            box-shadow: 0 15px 30px rgba(0,0,0,0.25), 0 0 0 3px rgba(0,204,255,0.1);
+            transition: all 0.4s ease-in-out;
+            background: rgba(255, 255, 255, 0.9); /* Slightly frosted glass effect */
+            backdrop-filter: blur(8px); /* Frosted glass */
+            min-height: 450px; /* Ensure it has some height */
+            display: flex;
+            flex-wrap: wrap; /* Allow tiles to wrap */
+            justify-content: center; /* Center tiles */
+            align-items: center;
+            padding: 1.5rem; /* Increased padding */
+            position: relative;
+            border: 2px solid; /* For animated border */
+            animation: borderFadeGlow 6s infinite ease-in-out; /* Animated border glow */
+        }
+        .internship-tiles-container:hover {
+            box-shadow: 0 20px 40px rgba(0,0,0,0.35), 0 0 0 4px rgba(147,23,200,0.3); /* Stronger shadow and secondary glow on hover */
+            transform: translateY(-5px); /* Slight lift */
+        }
+        /* Internal glowing element for the interactive container */
+        .internship-tiles-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 150px; /* Size of the light */
+            height: 150px;
+            background: radial-gradient(circle, rgba(0,204,255,0.15), transparent 70%); /* Cyan light */
+            border-radius: 50%;
+            filter: blur(20px); /* Soft blur */
+            animation: spinningLight 15s infinite linear; /* Spin and fade */
+            z-index: -1;
+        }
+        .internship-tiles-container::after { /* Second light */
+            content: '';
+            position: absolute;
+            top: 20%;
+            right: 20%;
+            width: 100px;
+            height: 100px;
+            background: radial-gradient(circle, rgba(147,23,200,0.15), transparent 70%); /* Purple light */
+            border-radius: 50%;
+            filter: blur(15px);
+            animation: spinningLight 12s infinite reverse linear; /* Reverse spin */
+            animation-delay: 2s;
+            z-index: -1;
+        }
+
+        .internship-list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem; /* More spacing */
+            padding: 0.5rem 0; /* Padding for clickability */
+            transition: transform 0.2s ease-in-out;
+        }
+        .internship-list-item:hover {
+            transform: translateX(5px); /* Subtle slide on hover */
+        }
+        .internship-list-item svg {
+            flex-shrink: 0;
+            margin-top: 0.15rem; /* Align icon better with text */
+            margin-right: 1rem; /* More space */
+            color: #00caff; /* Updated to accent color */
+            filter: drop-shadow(0 1px 1px rgba(0,0,0,0.1));
+        }
+        .internship-list-item p {
+            font-size: 1.125rem; /* Larger text */
+            line-height: 1.5;
+            color: #334155; /* Slightly darker text for readability */
+        }
+
+        /* Styles for individual career tiles */
+        .career-tile {
+            background: linear-gradient(135deg, #e0eaff, #c0d9ff); /* Soft blue gradient for tiles */
+            border: 1px solid #a8c8e8;
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            text-align: center;
+            flex: 1 1 calc(33% - 1.5rem); /* Responsive grid: 3 tiles per row on larger screens */
+            max-width: calc(33% - 1.5rem);
+            margin: 0.75rem; /* Gap between tiles */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transition: all 0.3s ease-in-out;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 160px; /* Ensure consistent tile height */
+            animation: tileEntry 0.5s ease-out forwards; /* Entry animation for tiles */
+            opacity: 0; /* Start hidden for animation */
+        }
+        /* Adjusted animation delays for new order (now only 4 tiles) */
+        .career-tile:nth-child(1) { animation-delay: 0s; } /* HR */
+        .career-tile:nth-child(2) { animation-delay: 0.1s; } /* Frontend */
+        .career-tile:nth-child(3) { animation-delay: 0.2s; } /* Backend */
+        .career-tile:nth-child(4) { animation-delay: 0.3s; } /* Data Analyst */
+        /* Removed further nth-child delays as there are only 4 tiles now */
+
+
+        @media (max-width: 1024px) {
+            .career-tile {
+                flex: 1 1 calc(48% - 1rem); /* 2 tiles per row on medium screens */
+                max-width: calc(48% - 1rem);
+            }
+        }
+        @media (max-width: 640px) {
+            .career-tile {
+                flex: 1 1 100%; /* 1 tile per row on small screens */
+                max-width: 100%;
+                margin: 0.75rem 0;
+            }
+        }
+
+        .career-tile:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15), 0 0 0 3px rgba(0,204,255,0.4); /* Cyan border glow on hover */
+            background: linear-gradient(135deg, #00caff, #8a2be2); /* Gradient on hover */
+            color: white; /* Text color changes on hover */
+        }
+        .career-tile:hover .tile-icon {
+            color: white; /* Icon color changes on hover */
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+        }
+
+        .career-tile .tile-title {
+            font-size: 1.125rem; /* Larger title */
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #2c3e50; /* Dark text */
+            transition: color 0.3s ease-in-out;
+        }
+        .career-tile:hover .tile-title {
+            color: white;
+        }
+
+        .career-tile .tile-description {
+            font-size: 0.875rem; /* Smaller description */
+            color: #555;
+            line-height: 1.4;
+            transition: color 0.3s ease-in-out;
+        }
+        .career-tile:hover .tile-description {
+            color: rgba(255,255,255,0.9);
+        }
+
+        /* New style for email input in Early Access */
+        .early-access-input {
+            background-color: rgba(255, 255, 255, 0.15); /* Slightly transparent white */
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            padding: 0.75rem 1.25rem;
+            border-radius: 9999px; /* Pill shape */
+            color: white;
+            transition: all 0.3s ease-in-out;
+        }
+        /* Corrected placeholder styling */
+        .early-access-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        .early-access-input:focus {
+            outline: none;
+            border-color: #00caff; /* Cyan glow on focus */
+            box-shadow: 0 0 0 4px rgba(0, 204, 255, 0.3);
+        }
+
+        /* Custom Message Box Styles */
+        .message-modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .message-modal-overlay.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .message-modal-content {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+        }
+        .message-modal-overlay.visible .message-modal-content {
+            transform: scale(1);
+        }
+        .message-modal-content h4 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        .message-modal-content p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+        .message-modal-content button {
+            background-image: linear-gradient(to right, #6366f1, #5850e0);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            border: none;
+            cursor: pointer;
+            transition: background-image 0.3s ease, transform 0.2s ease;
+        }
+        .message-modal-content button:hover {
+            transform: translateY(-2px);
+            background-image: linear-gradient(to right, #5850e0, #4d44cf);
+        }
+
+    </style>
+</head>
+<body id="top">
+    <!-- Header / Navigation -->
+    <header id="navbar" class="bg-gray-900/80 backdrop-blur-lg shadow-lg py-5 px-6 md:px-12 flex items-center fixed w-full z-50 animate-fade-in border-b border-gray-700">
+        <a href="#top" class="flex items-center">
+            <!-- Zyntiq Logo - Rectangular -->
+            <img src="logo.png" alt="Zyntiq Logo" class="h-10 w-auto transition-transform duration-300 hover:scale-105 transform">
+        </a>
+        <!-- Adjusted the main navigation for right alignment and larger size -->
+        <nav class="hidden md:flex flex-grow justify-end ml-auto">
+            <ul class="flex space-x-6"> <!-- Using ul for semantic correctness and controlled spacing -->
+                <li><a href="#about-zyntiq" class="nav-link-effect text-gray-200 text-base font-semibold transition-colors duration-200 hover:text-pink-300">Our Vision</a></li>
+                <li><a href="#the-zyntiq-difference" class="nav-link-effect text-gray-200 text-base font-semibold transition-colors duration-200 hover:text-pink-300">Why Zyntiq?</a></li>
+                <li><a href="#real-world-internships" class="nav-link-effect text-gray-200 text-base font-semibold transition-colors duration-200 hover:text-pink-300">Internships</a></li>
+                <li><a href="#accreditation-trust" class="nav-link-effect text-gray-200 text-base font-semibold transition-colors duration-200 hover:text-pink-300">Certifications</a></li>
+                <li><a href="#early-access" class="nav-link-effect text-gray-200 text-base font-semibold transition-colors duration-200 hover:text-pink-300">Get Early Access</a></li>
+            </ul>
+        </nav>
+        <button id="nav-toggle" class="md:hidden p-3 rounded-md hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200 ml-auto">
+            <svg class="w-7 h-7 text-gray-200" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </button>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-nav-content" class="hidden md:hidden absolute top-[76px] left-0 w-full bg-gray-800 bg-opacity-95 shadow-xl py-4 rounded-b-lg">
+            <a href="#about-zyntiq" class="block text-gray-200 px-6 py-3 hover:bg-gray-700 transition-colors duration-200 text-base">Our Vision</a>
+            <a href="#the-zyntiq-difference" class="block text-gray-200 px-6 py-3 hover:bg-gray-700 transition-colors duration-200 text-base">Why Zyntiq?</a>
+            <a href="#real-world-internships" class="block text-gray-200 px-6 py-3 hover:bg-gray-700 transition-colors duration-200 text-base">Internships</a>
+            <a href="#accreditation-trust" class="block text-gray-200 px-6 py-3 hover:bg-gray-700 transition-colors duration-200 text-base">Certifications</a>
+            <a href="#early-access" class="block text-gray-200 px-6 py-3 hover:bg-gray-700 transition-colors duration-200 text-base">Get Early Access</a>
+        </div>
+    </header>
+
+    <!-- Hero Section - Coming Soon -->
+    <section class="relative text-white flex items-center justify-center min-h-screen pt-16 md:pt-20 lg:pt-0 overflow-hidden hero-section-animated-bg" data-launch-date="2025-07-03T10:00:00">
+        <!-- Overlay for readability -->
+        <div class="absolute inset-0 bg-gradient-to-t from-gray-900 via-gray-900/70 to-transparent z-0"></div>
+        <!-- Background Pattern & Abstract Shapes -->
+        <div class="absolute inset-0 hero-pattern z-0"></div>
+
+        <!-- SVG Blob Animation Container for Hero -->
+        <div class="svg-blob">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Filter definition removed for performance -->
+                <g> <!-- Removed filter="url(#goo)" -->
+                    <polygon points="100 0, 150 25, 200 100, 150 175, 100 200, 50 175, 0 100, 50 25"></polygon>
+                    <circle cx="150" cy="50" r="20" style="animation-delay: 0.5s;"></circle>
+                    <circle cx="50" cy="150" r="25" style="animation-delay: 1s;"></circle>
+                    <circle cx="120" cy="120" r="18" style="animation-delay: 1.5s;"></circle>
+                </g>
+            </svg>
+        </div>
+
+        <!-- More dynamic background shapes (still keeping these) -->
+        <div class="absolute top-1/4 left-1/4 w-32 h-32 bg-indigo-700 rounded-full mix-blend-screen opacity-20 blur-3xl glow-float-animation-slow" style="animation-delay: 0.5s;"></div>
+        <div class="absolute top-1/2 right-1/3 w-40 h-40 bg-purple-700 rounded-full mix-blend-screen opacity-20 blur-3xl glow-float-animation-medium" style="animation-delay: 1.5s;"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-24 h-24 bg-blue-500 rounded-full mix-blend-screen opacity-20 blur-3xl glow-float-animation-fast" style="animation-delay: 2.5s;"></div>
+        <div class="absolute top-1/3 right-1/4 w-36 h-36 bg-amber-500 rounded-full mix-blend-screen opacity-15 blur-3xl glow-float-animation-slow" style="animation-delay: 3.5s;"></div>
+
+        <!-- Content -->
+        <div class="relative z-10 text-center max-w-5xl px-4 py-16 md:py-24">
+            <h1 class="text-4xl md:text-7xl font-extrabold leading-tight mb-4 animate-fade-in-up">
+                The Future of E-Learning & Opportunity is <span class="text-gradient">Almost Here.</span>
+            </h1>
+            <p class="text-xl md:text-3xl font-semibold mb-8 animate-fade-in-delay-05s text-gradient">
+                Zyntiq: Innovate. Learn. Lead.
+            </p>
+            <p class="text-lg md:text-xl mb-10 opacity-90 animate-fade-in-delay-05s">
+                We're crafting an unparalleled platform featuring **dynamic e-learning courses** and **impactful real-world internships** to propel your career forward.
+            </p>
+
+            <!-- Countdown Timer Placeholder -->
+            <div id="countdown" class="bg-white/20 border-2 text-white py-4 px-8 rounded-full inline-block shadow-xl text-2xl md:text-4xl font-bold tracking-wide mb-10 transform translate-y-4 opacity-0 animate-[fadeInUp_1s_ease-out_1s_forwards] animate-[border-glow-pulse_3s_infinite_ease-in-out]" style="text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);">
+                Launching in: <span id="countdown-days">00</span>D <span id="countdown-hours">00</span>H <span id="countdown-minutes">00</span>M <span id="countdown-seconds">00</span>S
+            </div>
+
+            <!-- Changed href to point to the social media container -->
+            <a href="#early-access" class="inline-block py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 animate-fade-in-up-delay-06s gradient-button">
+                Join the Zyntiq Revolution!
+            </a>
+            <p class="mt-8 text-sm opacity-80 animate-fade-in-delay-06s">Get exclusive insights & early access perks.</p>
+        </div>
+    </section>
+
+    <!-- Our Vision (Repurposed from 'About Zyntiq') -->
+    <section class="section-padding bg-gradient-to-br from-gray-900 to-gray-700 text-white relative overflow-hidden" id="about-zyntiq">
+        <!-- Running Gradient Background Animation -->
+        <div class="absolute inset-0 z-0 opacity-10" style="background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent); background-size: 200% 100%; animation: run-gradient 10s linear infinite;"></div>
+        <div class="container mx-auto max-w-6xl text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 animate-fade-in-up">Our Vision: Elevating Your Professional Journey</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Benefit Card 1 -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/20 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-card-pop-delay-01s card-hover-effect">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20H4a2 2 0 01-2-2V4a2 2 0 012-2h3.293a1 1 0 01.707.293L11.586 6H18a2 2 0 012 2v2M3 11h18M7 15h10M7 19h10"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">AI-Powered Learning Paths</h3>
+                    <p class="text-gray-100">Personalized education adapting to your unique pace and goals.</p>
+                </div>
+                <!-- Benefit Card 2 -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/20 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-card-pop-delay-02s card-hover-effect">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H2v-2a3 3 0 015.356-1.857m7.5 1.857H17m-7.5 0A3 3 0 0112 15h2a3 3 0 013 3v2M3 18h18M6 6h.01M6 10h.01M6 14h.01M6 18h.01"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Global Mentor Network</h3>
+                    <p class="text-gray-100">Connect with industry leaders worldwide for unparalleled guidance.</p>
+                </div>
+                <!-- Benefit Card 3 -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/20 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-card-pop-delay-03s card-hover-effect">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.12-8.455-3.007a.999.999 0 00-1.002 1.86A25.923 25.923 0 0012 17c4.142 0 7.828-1.748 10.455-4.577a.999.999 0 00-1.002-1.86z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Impactful Industry Placements</h3>
+                    <p class="text-gray-100">Secure real-world experience that truly stands out to employers.</p>
+                </div>
+                <!-- Benefit Card 4 -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/20 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-card-pop-delay-04s card-hover-effect">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Adaptive Learning Environment</h3>
+                    <p class="text-gray-100">Seamlessly learn across devices, tailored to your lifestyle.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Zyntiq Difference (Key Differentiators) -->
+    <section class="section-padding bg-gradient-to-br from-gray-700 to-gray-900 text-white" id="the-zyntiq-difference">
+        <div class="container mx-auto max-w-6xl text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white animate-fade-in-up">The Zyntiq Advantage: What Makes Us Different</h2>
+            <p class="text-lg md:text-xl text-gray-100 mb-12 animate-fade-in-up-delay-01s">We don't just offer courses; we provide a complete ecosystem for career acceleration. Here's our commitment to your success:</p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Difference Card 1: Hyper-Personalized AI-Powered Learning -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/20 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-card-pop-delay-01s card-hover-effect">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M17 12h.01M12 12h.01M12 4V3m0 18v-1M4.21 6.79l-.706-.705M17.788 17.788l.707.707M18 12h.01M6 12h.01M9.663 17H5.25a2.25 2.25 0 01-2.25-2.25V6.254a2.25 2.25 0 012.25-2.25h13.597a2.25 2.25 0 012.25 2.25v10.125a2.25 2.25 0 01-2.25 2.25H15.337m-1.013-1.013L9.663 17M11.25 14.25h-2.25m4.5 0h-2.25"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Hyper-Personalized AI Learning</h3>
+                    <p class="text-gray-100">Our AI adapts content and pace specifically to your learning style, ensuring maximum retention and engagement.</p>
+                </div>
+                <!-- Difference Card 2: Guaranteed Project-Based Internships -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/20 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-card-pop-delay-02s card-hover-effect">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.5l2 2 4-4m-12 11h.01M12 18h.01M16 18h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Guaranteed Project-Based Internships</h3>
+                    <p class="text-gray-100">We don't just offer internships; we ensure you secure a relevant project-based role to build a robust portfolio.</p>
+                </div>
+                <!-- Difference Card 3: Dedicated Career Mentorship -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/20 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-card-pop-delay-03s card-hover-effect">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M12 20V10m0 0a4 4 0 01-4-4h8a4 4 0 01-4 4zm-8 8v-2.5A6.5 6.5 0 0112 9.5a6.5 6.5 0 018 7.5V18l-.92.92"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Dedicated Career Mentorship</h3>
+                    <p class="text-gray-100">Receive 1-on-1 guidance from industry veterans, not just during courses, but throughout your job search.</p>
+                </div>
+                <!-- Difference Card 4: Industry-Led, Future-Proof Curriculum -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/20 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-card-pop-delay-04s card-hover-effect">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Industry-Led, Future-Proof Curriculum</h3>
+                    <p class="text-gray-100">Our content is continuously updated by industry leaders, ensuring your skills are always cutting-edge.</p>
+                </div>
+                <!-- Difference Card 5: Post-Completion Placement Support -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/20 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-card-pop-delay-05s card-hover-effect">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-1.12-8.455-3.007a.999.999 0 00-1.002 1.86A25.923 25.923 0 0012 17c4.142 0 7.828-1.748 10.455-4.577a.999.999 0 00-1.002-1.86z"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Post-Completion Placement Support</h3>
+                    <p class="text-gray-100">Beyond courses and internships, we offer active support for job placements and career transitions.</p>
+                </div>
+                <!-- Difference Card 6: Zyntiq Alumni Network -->
+                <div class="bg-white/10 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-white/20 hover:shadow-xl transition-shadow duration-300 transform hover:-translate-y-1 animate-card-pop-delay-06s card-hover-effect">
+                    <div class="flex items-center justify-center w-16 h-16 bg-white/20 rounded-full mx-auto mb-4">
+                        <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H2v-2a3 3 0 015.356-1.857m7.5 1.857H17m-7.5 0A3 3 0 0112 15h2a3 3 0 013 3v2M3 18h18M6 6h.01M6 10h.01M6 14h.01M6 18h.01"></path></svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3 text-white">Zyntiq Alumni Network</h3>
+                    <p class="text-gray-100">Access an exclusive network of Zyntiq graduates for ongoing collaboration and career opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-World Internships Section - Now featuring Tiles -->
+    <section class="section-padding text-gray-800 internship-section-bg" id="real-world-internships">
+        <!-- New animated gradient overlay for the section background -->
+        <div class="absolute inset-0 z-0 opacity-10" style="background: linear-gradient(90deg, transparent, rgba(99,102,241,0.08), transparent); background-size: 200% 100%; animation: run-gradient 15s linear infinite;"></div>
+        <div class="inner-blob"></div>
+        <div class="container mx-auto max-w-6xl text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-fade-in-up">Discover Your Path: Internship & Career Highlights</h2>
+            <p class="text-lg md:text-xl text-gray-700 mb-12 animate-fade-in-up-delay-01s">Explore high-demand career paths and the internships that pave the way to your professional success.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <!-- Left Column: Introduction & Benefits -->
+                <div class="text-left animate-fade-in-up-delay-02s">
+                    <h3 class="text-2xl md:text-3xl font-semibold mb-4 text-gradient">Your Gateway to Industry Leading Roles</h3>
+                    <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+                        At Zyntiq, we bridge the gap between learning and leading. Our programs are designed to equip you with the exact skills needed for these in-demand roles, backed by real-world internship experiences.
+                    </p>
+                    <ul class="space-y-4 text-lg text-gray-600">
+                        <li class="internship-list-item">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <p><strong>Industry-Relevant Curriculums:</strong> Learn what employers are actually looking for.</p>
+                        </li>
+                        <li class="internship-list-item">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.5l2 2 4-4m-12 11h.01M12 18h.01M16 18h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            <p><strong>Guaranteed Internships:</strong> Apply your knowledge directly with leading companies.</p>
+                        </li>
+                        <li class="internship-list-item">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path></svg>
+                            <p><strong>Career Acceleration:</strong> Fast-track your entry into your desired field.</p>
+                        </li>
+                    </ul>
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-8">
+                        <a href="#early-access" class="inline-block py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 gradient-button">
+                            Explore Our Programs
+                        </a>
+                        <a href="#early-access" class="inline-block py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 bg-white text-gray-800 border border-gray-300 hover:bg-gray-100">
+                            Download Brochure
+                        </a>
+                    </div>
+                </div>
+                <!-- Right Column: Interactive Career Tiles -->
+                <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl animate-fade-in-up-delay-03s internship-tiles-container" id="career-tiles-display">
+                    <!-- Tiles will be dynamically injected here by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Accreditation & Trust Section -->
+    <section class="section-padding bg-gray-900 text-white accreditation-section-bg" id="accreditation-trust">
+        <div class="container mx-auto max-w-6xl text-center relative z-10">
+            <h2 class="text-3xl md:text-4xl font-bold mb-12 animate-fade-in-up">Certified Excellence: Our Accreditations & Partners</h2>
+            <p class="text-lg md:text-xl text-gray-300 mb-12 animate-fade-in-up-delay-01s">Zyntiq is committed to providing industry-recognized education. We partner with leading organizations to ensure your credentials open doors worldwide.</p>
+
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center items-center">
+                <!-- Placeholder Logos for Accreditations/Partnerships -->
+                <div class="accreditation-card-advanced rounded-xl p-6 flex items-center justify-center w-full max-w-[180px] h-[100px] transform animate-card-pop-delay-01s">
+                    <img src="https://placehold.co/120x60/f5f7fa/0f0d26?text=Partner+A" alt="Partner Logo A" class="h-full object-contain logo-filter-transition">
+                </div>
+                <div class="accreditation-card-advanced rounded-xl p-6 flex items-center justify-center w-full max-w-[180px] h-[100px] transform animate-card-pop-delay-02s">
+                    <img src="https://placehold.co/120x60/f5f7fa/0f0d26?text=Cert+Body+B" alt="Cert Body Logo B" class="h-full object-contain logo-filter-transition">
+                </div>
+                <div class="accreditation-card-advanced rounded-xl p-6 flex items-center justify-center w-full max-w-[180px] h-[100px] transform animate-card-pop-delay-03s">
+                    <img src="https://placehold.co/120x60/f5f7fa/0f0d26?text=Partner+C" alt="Partner Logo C" class="h-full object-contain logo-filter-transition">
+                </div>
+                <div class="accreditation-card-advanced rounded-xl p-6 flex items-center justify-center w-full max-w-[180px] h-[100px] transform animate-card-pop-delay-04s">
+                    <img src="https://placehold.co/120x60/f5f7fa/0f0d26?text=Cert+Org+D" alt="Cert Org Logo D" class="h-full object-contain logo-filter-transition">
+                </div>
+                <!-- Add more as needed -->
+            </div>
+            <a href="#early-access" class="mt-12 inline-block py-3 px-8 rounded-full shadow-lg transform transition-transform duration-300 hover:scale-105 animate-fade-in-up-delay-05s gradient-button">
+                Explore Certifications
+            </a>
+        </div>
+    </section>
+
+    <!-- Early Access Section (New Section) -->
+    <section id="early-access" class="section-padding bg-gradient-to-br from-purple-800 to-indigo-900 text-white relative overflow-hidden">
+        <div class="absolute inset-0 z-0 opacity-10" style="background-image: radial-gradient(circle at center, rgba(255,255,255,0.05) 1px, transparent 1px); background-size: 30px 30px;"></div>
+        <div class="container mx-auto max-w-4xl text-center relative z-10">
+            <h2 class="text-4xl md:text-5xl font-extrabold mb-6 animate-fade-in-up">Ready to Transform Your Future?</h2>
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 animate-fade-in-up-delay-01s">
+                Be among the first to experience the revolutionary Zyntiq platform.
+                Unlock exclusive content, early internship opportunities, and priority access.
+            </p>
+            <p class="text-lg text-gray-300 mb-10 animate-fade-in-up-delay-02s">
+                Join our waiting list now and get ahead in your career journey!
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 animate-fade-in-up-delay-03s">
+                <input type="email" id="early-access-email" name="email" placeholder="Your Email Address"
+                       class="w-full sm:w-80 px-5 py-3 rounded-full early-access-input"
+                       aria-label="Email for early access signup">
+                <button type="submit" id="early-access-submit"
+                        class="inline-block py-3 px-8 rounded-full shadow-lg text-lg font-semibold transform transition-transform duration-300 hover:scale-105 gradient-button">
+                    Get Early Access
+                </button>
+            </div>
+            <p class="mt-6 text-sm text-gray-400 animate-fade-in-up-delay-04s">
+                No spam, just exciting updates and opportunities.
+            </p>
+        </div>
+    </section>
+
+
+    <!-- Footer / Newsletter Signup (contact-footer) -->
+    <footer id="contact-footer" class="bg-gray-950 text-white py-20 px-4 sm:px-6 lg:px-8 border-t border-purple-700">
+        <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+            <!-- Company Info -->
+            <div>
+                <h3 class="text-2xl font-bold mb-6 text-blue-400 flex items-center animate-fade-in-up">
+                    <!-- Zyntiq Logo in Footer - Rectangular -->
+                    <img src="logo.png" alt="Zyntiq Logo" class="h-8 w-auto mr-3">
+                </h3>
+                <p class="text-gray-400 leading-relaxed text-md animate-fade-in-up-delay-01s">
+                    Zyntiq is at the forefront of digital education, empowering individuals globally with future-ready skills and an unparalleled learning ecosystem, including transformative internships.
+                </p>
+            </div>
+            <!-- Contact Info / Social Media & Newsletter Signup -->
+            <div id="social-media-container">
+                <h3 class="text-2xl font-bold mb-6 animate-fade-in-up-delay-03s">Connect With Us</h3>
+                <!-- Removed Email and Phone Number -->
+
+                <!-- Social Media Icons -->
+                <div class="flex space-x-6 mt-6 animate-fade-in-up-delay-06s">
+                    <a href="https://www.linkedin.com/company/zyntiq/" class="social-icon linkedin" target="_blank" rel="noopener noreferrer" title="LinkedIn">
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22.23 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.73V1.73C24 .77 23.21 0 22.23 0zM7.38 20.47H3.59V8.6H7.38V20.47zM5.49 7.02c-1.2 0-2.18-.97-2.18-2.17s.98-2.17 2.18-2.17 2.18.97 2.18 2.17S6.69 7.02 5.49 7.02zM20.42 20.47h-3.79v-6.09c0-1.45-.52-2.45-1.82-2.45-1.31 0-2.08.89-2.08 2.45v6.09h-3.79V8.6h3.79v1.65h.05c.52-.89 1.54-1.93 3.41-1.93 3.66 0 4.33 2.4 4.33 5.5v6.65z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/zyntiq_official?utm_source=qr&igsh=a3d3cGFtb3hudWpi" class="social-icon instagram" target="_blank" rel="noopener noreferrer" title="Instagram">
+                        <!-- Corrected Instagram SVG path -->
+                        <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M7.8 2H16.2A5.8 5.8 0 0122 7.8V16.2A5.8 5.8 0 0116.2 22H7.8A5.8 5.8 0 012 16.2V7.8A5.8 5.8 0 017.8 2zm-.2 2A3.8 3.8 0 004 7.8V16.2A3.8 3.8 0 007.8 20H16.2A3.8 3.8 0 0020 16.2V7.8A3.8 3.8 0 0016.2 4H7.6zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6zm6.5-3a1.2 1.2 0 100 2.4 1.2 1.2 0 000-2.4z"/></svg>
+                    </a>
+                </div>
+                <p class="text-gray-400 mt-6 text-md animate-fade-in-up-delay-07s">Stay updated for our grand launch!</p>
+            </div>
+        </div>
+        <div class="text-center text-gray-500 mt-14 text-sm">
+            &copy; 2025 Zyntiq. All rights reserved. Pioneering the future of education.
+        </div>
+    </footer>
+
+    <!-- Custom Message Box HTML -->
+    <div id="message-modal" class="message-modal-overlay">
+        <div class="message-modal-content">
+            <h4 id="modal-title"></h4>
+            <p id="modal-message"></p>
+            <button id="modal-close-button">OK</button>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" title="Back to top">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+        </svg>
+    </button>
+
+    <script>
+        // Function to display a custom message box
+        function showMessageBox(title, message) {
+            const modal = document.getElementById('message-modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalMessage = document.getElementById('modal-message');
+            const modalCloseButton = document.getElementById('modal-close-button');
+
+            if (modal && modalTitle && modalMessage && modalCloseButton) {
+                modalTitle.textContent = title;
+                modalMessage.textContent = message;
+                modal.classList.add('visible');
+
+                modalCloseButton.onclick = () => {
+                    modal.classList.remove('visible');
+                };
+
+                // Close on overlay click as well
+                modal.onclick = (e) => {
+                    if (e.target === modal) {
+                        modal.classList.remove('visible');
+                    }
+                };
+            }
+        }
+
+        // JavaScript for mobile navigation toggle
+        document.getElementById('nav-toggle').onclick = function() {
+            document.getElementById('mobile-nav-content').classList.toggle('hidden');
+        }
+
+        // Countdown Timer Functionality
+        const launchDateElement = document.querySelector('section.hero-section-animated-bg');
+        // Check if launchDateElement exists and has dataset.launchDate
+        const launchDateTime = launchDateElement && launchDateElement.dataset.launchDate ? new Date(launchDateElement.dataset.launchDate).getTime() : 0;
+
+
+        const countdownInterval = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = launchDateTime - now;
+
+            // Ensure elements exist before updating them
+            const countdownDays = document.getElementById("countdown-days");
+            const countdownHours = document.getElementById("countdown-hours");
+            const countdownMinutes = document.getElementById("countdown-minutes");
+            const countdownSeconds = document.getElementById("countdown-seconds");
+            const countdownDisplay = document.getElementById("countdown");
+
+            if (countdownDays) countdownDays.innerHTML = String(Math.max(0, Math.floor(distance / (1000 * 60 * 60 * 24)))).padStart(2, '0');
+            if (countdownHours) countdownHours.innerHTML = String(Math.max(0, Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)))).padStart(2, '0');
+            if (countdownMinutes) countdownMinutes.innerHTML = String(Math.max(0, Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)))).padStart(2, '0');
+            if (countdownSeconds) countdownSeconds.innerHTML = String(Math.max(0, Math.floor((distance % (1000 * 60)) / 1000))).padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(countdownInterval);
+                if (countdownDisplay) countdownDisplay.innerHTML = "Zyntiq Has Launched!";
+            }
+        }, 1000);
+
+        // Intersection Observer for Animations (applies fade-in-up to sections on scroll)
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.querySelectorAll('[class*="animate-fade-in-up"], [class*="animate-card-pop"], .career-tile').forEach(element => {
+                            // Re-trigger animation by removing and re-adding classes, or just setting opacity/transform
+                            element.style.opacity = '1';
+                            element.style.transform = 'translateY(0) scale(1)';
+                        });
+                        observer.unobserve(entry.target); // Observe once
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    const href = this.getAttribute('href');
+                    if (href === "#top" || href === "#") {
+                        e.preventDefault();
+                        window.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    } else {
+                        e.preventDefault();
+                        const targetElement = document.querySelector(href);
+                        if (targetElement) {
+                            targetElement.scrollIntoView({
+                                behavior: 'smooth'
+                            });
+                        }
+                    }
+                    const mobileNav = document.getElementById('mobile-nav-content');
+                    if (mobileNav && !mobileNav.classList.contains('hidden')) { // Added mobileNav check
+                         mobileNav.classList.add('hidden');
+                    }
+                });
+            });
+
+            // Sticky Navbar on Scroll
+            const navbar = document.getElementById('navbar');
+            const heroSection = document.querySelector('.hero-section-animated-bg');
+            // Safely get heroHeight, defaulting to a value if heroSection is null
+            const heroHeight = heroSection ? heroSection.offsetHeight : 200;
+
+            window.addEventListener('scroll', () => {
+                if (navbar) { // Ensure navbar exists before manipulating it
+                    if (window.scrollY > heroHeight / 3) {
+                        navbar.classList.add('navbar-scrolled');
+                    } else {
+                        navbar.classList.remove('navbar-scrolled');
+                    }
+                }
+
+                // Show/Hide Back to Top button
+                const backToTopButton = document.getElementById('back-to-top');
+                if (backToTopButton) { // Ensure button exists
+                    if (window.scrollY > 300) {
+                        backToTopButton.style.display = 'block';
+                    } else {
+                        backToTopButton.style.display = 'none';
+                    }
+                }
+            });
+
+            const backToTopButton = document.getElementById('back-to-top');
+            if (backToTopButton) { // Ensure button exists before adding event listener
+                backToTopButton.addEventListener('click', () => {
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
+
+            // Early Access Form Submission Handler
+            const earlyAccessSubmitButton = document.getElementById('early-access-submit');
+            const earlyAccessEmailInput = document.getElementById('early-access-email');
+
+            if (earlyAccessSubmitButton && earlyAccessEmailInput) {
+                earlyAccessSubmitButton.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent default form submission
+
+                    const email = earlyAccessEmailInput.value;
+                    if (email) {
+                        // In a real application, you would send this email to your backend/newsletter service
+                        console.log('Early access email submitted:', email);
+                        earlyAccessEmailInput.value = ''; // Clear the input field
+                        showMessageBox('Thank You!', 'We\'ll notify you at ' + email + ' for early access.');
+                    } else {
+                        showMessageBox('Error', 'Please enter a valid email address.');
+                    }
+                });
+            }
+
+            // --- Career Tiles Display Logic ---
+            const careerTilesDisplay = document.getElementById('career-tiles-display');
+
+            // Filtered and reordered to include only the specified options with Human Resources prioritized
+            const careerPathsData = [
+                { id: 'human_resources', name: 'Human Resources', icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H2v-2a3 3 0 015.356-1.857m7.5 1.857H17m-7.5 0A3 3 0 0112 15h2a3 3 0 013 3v2M3 18h18M6 6h.01M6 10h.01M6 14h.01M6 18h.01"></path></svg>', description: 'Manage talent, foster culture, and support employee growth.'},
+                { id: 'frontend_dev', name: 'Frontend Developer', icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 20H4a2 2 0 01-2-2V4a2 2 0 012-2h3.293a1 1 0 01.707.293L11.586 6H18a2 2 0 012 2v2M3 11h18M7 15h10M7 19h10" /></svg>', description: 'Craft engaging and responsive user interfaces.' },
+                { id: 'backend_dev', name: 'Backend Developer', icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M12 5l7 7-7 7" /></svg>', description: 'Build robust server-side logic and scalable APIs.' },
+                { id: 'data_analyst', name: 'Data Analyst', icon: '<svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 19V6l-3 3M9 19l3-3m-3 3l-3-3m12-3h3m-3 0V6a2 2 0 00-2-2H6a2 2 0 00-2 2v10a2 2 0 002 2h4.586l3.414 3.414A2 2 0 0015 20.414V19h3a2 2 0 002-2v-3a2 2 0 00-2-2z" /></svg>', description: 'Interpret complex data to drive business insights.' },
+            ];
+
+            function renderCareerTiles() {
+                careerTilesDisplay.innerHTML = ''; // Clear existing tiles
+                careerPathsData.forEach(path => {
+                    const tileEl = document.createElement('div');
+                    tileEl.className = 'career-tile';
+                    tileEl.id = `career-tile-${path.id}`; // Add an ID for potential future use
+                    tileEl.innerHTML = `
+                        <div class="tile-icon">${path.icon}</div>
+                        <h4 class="tile-title">${path.name}</h4>
+                        <p class="tile-description">${path.description}</p>
+                    `;
+                    // Optional: Add click listener if tiles should lead to more details
+                    // tileEl.addEventListener('click', () => showMessageBox('Career Path', `You clicked on ${path.name}: ${path.description}`));
+                    careerTilesDisplay.appendChild(tileEl);
+                });
+            }
+
+            // Initial rendering of tiles
+            renderCareerTiles();
+
+            // Other existing JS functions (countdown, navbar, scroll observer, early access) remain as is.
+        });
+    </script>
+</body>
+</html>
